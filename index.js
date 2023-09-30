@@ -4,10 +4,16 @@ let generateRowButton = document.body.querySelector("#generate-row");
 var rowCounter = 0;
 var columnCounter = 0;
 
-function columnCreator() {}
+function columnCreator(currentRow, amountToAdd) {
+  let thisRow = document.getElementById("row" + currentRow);
+  for (let i = 0; i < amountToAdd; i++) {
+    let newColumn = document.createElement("td");
+    newColumn.className = "box";
+    thisRow.appendChild(newColumn)
+  }
+}
 generateColumnButton.addEventListener("click", () => {
   if (rowCounter === 0) {
-    rowCounter += 1;
     columnCounter += 1;
     let myColumn = document.createElement("td");
     myColumn.id = "column" + columnCounter;
@@ -39,7 +45,7 @@ generateRowButton.addEventListener("click", () => {
   rowData.className = "box";
   grid.appendChild(myRow);
   myRow.appendChild(rowData);
-  myRow.appendChild(rowData);
+  columnCreator(rowCounter, columnCounter-1);
 
   //   else {
   //     rowCounter += 1;
