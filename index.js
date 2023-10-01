@@ -9,56 +9,63 @@ function columnCreator(currentRow, amountToAdd) {
   for (let i = 0; i < amountToAdd; i++) {
     let newColumn = document.createElement("td");
     newColumn.className = "box";
-    thisRow.appendChild(newColumn)
+    newColumn.id = "row" + currentRow + "-column" + i;
+    thisRow.appendChild(newColumn);
   }
 }
 generateColumnButton.addEventListener("click", () => {
-  if (rowCounter === 0) {
+  if (rowCounter === 0 && columnCounter === 0) {
+    rowCounter += 1;
     columnCounter += 1;
-    let myColumn = document.createElement("td");
-    myColumn.id = "column" + columnCounter;
-    myColumn.className = "box";
-    grid.appendChild(myColumn);
+    let myRow = document.createElement("tr");
+    let rowData = document.createElement("td");
+    myRow.id = "row" + rowCounter;
+    rowData.className = "box";
+    rowData.id = "row" + rowCounter + "-column" + columnCounter;
+    grid.appendChild(myRow);
+    myRow.appendChild(rowData);
   } else {
-    columnCounter += 1;
     // let myColumn = document.createElement("td");
     // let currentRow = document.getElementById("row"+rowCounter)
     // myColumn.id = "column" + columnCounter;
     // myColumn.className = "box";
     // currentRow.appendChild(myColumn);
     for (let i = 1; i <= rowCounter; i++) {
-      let myColumn = document.createElement("td");
+      console.log("row counter at iteration:", rowCounter, "i: ", i);
       let currentRow = document.getElementById("row" + i);
-      myColumn.id = "column" + columnCounter;
+      console.log(currentRow);
+      let myColumn = document.createElement("td");
+      var tempColumn = columnCounter + 1;
+      myColumn.id = "row" + i + "-column" + tempColumn;
       myColumn.className = "box";
       currentRow.appendChild(myColumn);
     }
+    columnCounter += 1;
   }
-  console.log("ColumnCount: ", columnCounter);
+  console.log("ColumnCount: ", columnCounter, "rowCount:", rowCounter);
 });
 
 generateRowButton.addEventListener("click", () => {
-  rowCounter += 1;
-  let myRow = document.createElement("tr");
-  let rowData = document.createElement("td");
-  myRow.id = "row" + rowCounter;
-  rowData.className = "box";
-  grid.appendChild(myRow);
-  myRow.appendChild(rowData);
-  columnCreator(rowCounter, columnCounter-1);
-
-  //   else {
-  //     rowCounter += 1;
-  //     for (let i = 1; i < columnCounter; i++) {
-  //       let myRow = document.createElement("tr");
-  //       let rowData = document.createElement("td");
-  //       let currentColumn = document.getElementById("column" + i);
-  //       myRow.id = "row" + rowCounter;
-  //       rowData.className = "box";
-  //       grid.appendChild(myRow);
-  //       grid.appendChild(rowData);
-  //     }
-  //   }
-
-  console.log("RowCount: ", rowCounter);
+  if (columnCounter === 0 && rowCounter === 0) {
+    rowCounter += 1;
+    columnCounter += 1;
+    let myRow = document.createElement("tr");
+    let rowData = document.createElement("td");
+    myRow.id = "row" + rowCounter;
+    rowData.className = "box";
+    rowData.id = "row" + rowCounter + "-column" + columnCounter;
+    grid.appendChild(myRow);
+    myRow.appendChild(rowData);
+  } else {
+    rowCounter += 1;
+    let myRow = document.createElement("tr");
+    let rowData = document.createElement("td");
+    myRow.id = "row" + rowCounter;
+    rowData.className = "box";
+    rowData.id = "row" + rowCounter + "-column" + "1";
+    grid.appendChild(myRow);
+    myRow.appendChild(rowData);
+    columnCreator(rowCounter, columnCounter - 1);
+  }
+  console.log("RowCount: ", rowCounter, "ColumnCount: ", columnCounter);
 });
