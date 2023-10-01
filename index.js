@@ -87,5 +87,39 @@ function clearAllCells() {
   });
 }
 
-
 clearAllButton.addEventListener("click", clearAllCells);
+
+function colorAllCells() {
+  const selectedColor = colorPicker.value;
+  const cells = document.querySelectorAll(".box");
+  cells.forEach((cell) => {
+    cell.style.backgroundColor = selectedColor;
+  });
+}
+
+colorAllButton.addEventListener("click", colorAllCells);
+
+
+function colorAllUncolored() {
+  const selectedColor = colorPicker.value;
+  const cells = document.querySelectorAll(".box");
+
+  cells.forEach((cell) => {
+    // Get the computed style of the cell
+    const computedStyle = getComputedStyle(cell);
+
+    // Check if the background color is white (in any format)
+    if (
+      computedStyle.backgroundColor === "rgb(255, 255, 255)" ||
+      computedStyle.backgroundColor === "#ffffff" ||
+      computedStyle.backgroundColor.toLowerCase() === "white" ||
+      computedStyle.backgroundColor === "rgba(0, 0, 0, 0)" // Fully transparent
+    ) {
+      cell.style.backgroundColor = selectedColor;
+    }
+  });
+}
+
+const colorAllUncoloredButton = document.querySelector("#colorAllUncoloredButton");
+colorAllUncoloredButton.addEventListener("click", colorAllUncolored);
+
