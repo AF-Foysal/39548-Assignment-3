@@ -25,11 +25,6 @@ generateColumnButton.addEventListener("click", () => {
     grid.appendChild(myRow);
     myRow.appendChild(rowData);
   } else {
-    // let myColumn = document.createElement("td");
-    // let currentRow = document.getElementById("row"+rowCounter)
-    // myColumn.id = "column" + columnCounter;
-    // myColumn.className = "box";
-    // currentRow.appendChild(myColumn);
     for (let i = 1; i <= rowCounter; i++) {
       console.log("row counter at iteration:", rowCounter, "i: ", i);
       let currentRow = document.getElementById("row" + i);
