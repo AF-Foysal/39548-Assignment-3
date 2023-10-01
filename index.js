@@ -6,7 +6,7 @@ var columnCounter = 0;
 
 function columnCreator(currentRow, amountToAdd) {
   let thisRow = document.getElementById("row" + currentRow);
-  for (let i = 0; i < amountToAdd; i++) {
+  for (let i = 2; i < amountToAdd + 2; i++) {
     let newColumn = document.createElement("td");
     newColumn.className = "box";
     newColumn.id = "row" + currentRow + "-column" + i;
