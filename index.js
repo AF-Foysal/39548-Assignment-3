@@ -62,3 +62,28 @@ generateRowButton.addEventListener("click", () => {
 
   console.log("RowCount: ", rowCounter);
 });
+
+// Function to change cell color
+function changeCellColor(event) {
+  const selectedColor = colorPicker.value;
+  const clickedCell = event.target;
+  clickedCell.style.backgroundColor = selectedColor;
+}
+
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("box")) {
+      changeCellColor(event);
+  }
+});
+
+
+function clearAllCells() {
+  const cells = document.querySelectorAll(".box");
+  cells.forEach((cell) => {
+      cell.style.backgroundColor = "white";
+  });
+}
+
+
+clearAllButton.addEventListener("click", clearAllCells);
