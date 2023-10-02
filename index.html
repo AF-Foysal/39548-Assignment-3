@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GRID MAKER</title>
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body>
-    <h2>Dynamic Grid Maker</h2>
-    <div class="navbar">
-      <button type="button" id="generate-column">Generate Column</button>
-      <button type="button" id="generate-row">Generate Row</button>
-      <button type="button" id="clearAllButton">Clear All Cells</button>
-      <button type="button" id="colorAllButton">Color All Cells</button>
-      <button type="button" id="colorAllUncoloredButton">Color all Uncolored Cells</button>
-      <!-- color choose test -->
-        <select id="colorPicker">
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option>
-          <option value="yellow">Yellow</option>
-          <option value="purple">Purple</option>
-      </select>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GRID MAKER</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<h2>Dynamic Grid Maker</h2>
+		<div class="navbar">
+			<button type="button" id="generate-column">Generate Column</button>
+			<button type="button" id="generate-row">Generate Row</button>
+			<button type="button" id="remove-column">Remove Column</button>
+			<button type="button" id="remove-row">Remove Row</button>
+			<button type="button" id="clearAllButton">Clear All Cells</button>
+			<button type="button" id="colorAllButton">Color All Cells</button>
+			<button type="button" id="colorAllUncoloredButton">
+				Color all Uncolored Cells
+			</button>
+			<!-- color choose test -->
+			<select id="colorPicker">
+				<option value="red">Red</option>
+				<option value="blue">Blue</option>
+				<option value="green">Green</option>
+				<option value="yellow">Yellow</option>
+				<option value="purple">Purple</option>
+			</select>
+		</div>
 
-    <table bgcolor="white" id="dynamic-grid"></table>
-  </body>
-  <script src="index.js"></script>
+		<table bgcolor="white" id="dynamic-grid"></table>
+	</body>
+	<script src="index.js"></script>
 </html>
