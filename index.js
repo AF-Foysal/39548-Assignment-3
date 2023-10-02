@@ -150,9 +150,27 @@ function removeColumn() {
 		}
 		console.log(
 			"Column Counter after remove: " +
-				columnCounter +
-				" rowCounter: " +
-				rowCounter
+			columnCounter +
+			" rowCounter: " +
+			rowCounter
 		);
 	}
+}
+
+removeRowButton.addEventListener("click", removeRow);
+
+function removeRow() {
+	if (rowCounter > 0) {
+		grid.deleteRow(-1);
+		rowCounter--;
+	}
+	if (rowCounter === 0) {
+		columnCounter = 0;
+	}
+	console.log(
+		"Column Counter after remove: " +
+		columnCounter +
+		" rowCounter: " +
+		rowCounter
+	);
 }
